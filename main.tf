@@ -140,7 +140,7 @@ resource "aws_instance" "Jenkins" {
       Name = "SonarQube-Server"
     }
     ami = "ami-00060fac2f8c42d30"
-    instance_type = "t2.micro"
+    instance_type = "t2.medium"
     key_name = "rangam"
     iam_instance_profile = "ssm"
     vpc_security_group_ids = [aws_security_group.SecurityGroup.id]
@@ -165,6 +165,7 @@ resource "aws_instance" "Jenkins" {
         sudo echo "Welcome to SonarQube-Server"
         sudo docker run -d --name sonarqube -p 9000:9000 -v sonarqube_data:/opt/sonarqube/data -v sonarqube_extensions:/opt/sonarqube/extensions -v sonarqube_logs:/opt/sonarqube/logs sonarqube:lts-community
         sudo docker ps
+        sudo docker start sonarqube
         sudo hostnamectl set-hostname SonarQube-Server
         sudo echo "All Done" 
    EOF
