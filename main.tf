@@ -198,7 +198,7 @@ resource "aws_instance" "Jfrog" {
   source /etc/environment
   cd /opt/
   sudo wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.3/jfrog-artifactory-oss-7.71.3-linux.tar.gz
-  sudo tar xvzf jfrog-artifactory-oss-7.71.3-linux.tar.gz
+  sudo tar -xvzf jfrog-artifactory-oss-7.71.3-linux.tar.gz
   mv artifactory-oss-* jfrog  
   sudo cp -pvr /etc/environment "/etc/environment_$(date +%F_%R)"  
   echo "JFROG_HOME=/opt/jfrog" >> /etc/environment
