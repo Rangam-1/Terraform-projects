@@ -84,6 +84,18 @@ resource "aws_security_group" "SecurityGroup" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
+    from_port   = 8081
+    to_port     = 8081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 8082
+    to_port     = 8082
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
@@ -123,6 +135,7 @@ resource "aws_instance" "Jenkins" {
          "sudo chown -R jenkins:jenkins /var/lib/jenkins",
          "sudo chmod -R 755 /var/lib/jenkins",
          "sudo -u jenkins cat /var/lib/jenkins/secrets/initialAdminPassword"
+
     ]
     connection {
       type        = "ssh"
@@ -135,6 +148,7 @@ resource "aws_instance" "Jenkins" {
   output "Jenkins-URL" {
     value = "http://${aws_instance.Jenkins.public_ip}:8080"
   }
+
   resource "aws_instance" "SonarQube" {
     tags = {
       Name = "SonarQube-Server"
