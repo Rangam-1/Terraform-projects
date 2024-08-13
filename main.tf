@@ -211,6 +211,7 @@ resource "aws_security_group" "SecurityGroup" {
 #   echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/" >> /etc/environment
 #   source /etc/environment
 #   cd /opt/
+# you will find all the version in https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/
 #   sudo wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.3/jfrog-artifactory-oss-7.71.3-linux.tar.gz
 #   sudo tar -xvzf jfrog-artifactory-oss-7.71.3-linux.tar.gz
 #   mv artifactory-oss-* jfrog  
