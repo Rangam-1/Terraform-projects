@@ -1,5 +1,7 @@
 SonarQube steps
 
+< --------------    First way    ------------>
+
 1. Under plugins keep below code
 
 <plugin>
@@ -22,4 +24,23 @@ SonarQube steps
   </properties>
 </profile>
 3. Install SonarQube pulgin in jenkins server
-4.
+4.tools configuration
+5. System configuration - server name, token and etc
+
+
+
+
+
+
+
+< ------------------------Second Way ------------------- >
+
+inside  <properties>
+
+    <sonar.host.url>http://13.127.144.156:9000</sonar.host.url> <!-- Your SonarQube server URL -->
+    <sonar.token>sqp_05247f86ffb837cf9526148bd1b178c364e8c175</sonar.token> <!-- Your SonarQube token for authentication -->
+    <sonar.projectKey>Sample</sonar.projectKey>
+    <sonar.projectName>Sample</sonar.projectName>
+
+
+</properties>
