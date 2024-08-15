@@ -1,0 +1,21 @@
+SonarQube steps
+
+1. Under plugins keep below code
+
+<plugin>
+ <groupId>org.sonarsource.scanner.maven</groupId>
+ <artifactId>sonar-maven-plugin</artifactId>
+ <version>3.7.0.1746</version>
+</plugin>
+
+2. Under Profile keep this code
+<profile>
+  <id>sonar</id>
+     <activation>
+       <activeByDefault>true</activeByDefault>
+     </activation>
+  <properties>
+  <!-- Optional URL to server. Default value is http://localhost:9000 -->
+       <sonar.host.url>http://52.66.200.102:9000</sonar.host.url>
+  </properties>
+</profile>
