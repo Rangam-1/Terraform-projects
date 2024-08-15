@@ -12,17 +12,19 @@ SonarQube steps
 
 </plugin>
 
-2. Under Profile keep this code
-<profile>
-  <id>sonar</id>
-     <activation>
-       <activeByDefault>true</activeByDefault>
-     </activation>
-  <properties>
-  <!-- Optional URL to server. Default value is http://localhost:9000 -->
-       <sonar.host.url>http://52.66.200.102:9000</sonar.host.url>
-  </properties>
-</profile>
+2. Under project main tag keep this code
+<profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>http://52.66.200.102:9000</sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
 3. Install SonarQube pulgin in jenkins server
 4.tools configuration
 5. System configuration - server name, token and etc
