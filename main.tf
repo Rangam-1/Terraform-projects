@@ -140,7 +140,7 @@ resource "aws_instance" "Jenkins" {
     connection {
       type        = "ssh"
       user        = "ec2-user" # or the appropriate user for your instance
-      private_key = file("C:/Users/venki/OneDrive/Desktop/keypair/rangam.pem")
+      private_key = file("${path.module}/keys/rangam.pem")
       host        = aws_instance.Jenkins.public_ip
     }
   }
