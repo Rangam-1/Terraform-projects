@@ -130,19 +130,16 @@ resource "aws_instance" "Jenkins" {
     sudo echo "Welcome to Jenkins-Server" > /var/www/html/index.html
     EOF
   provisioner "remote-exec" {
-    inline = [
-         "sleep 60",
-         "sudo chown -R jenkins:jenkins /var/lib/jenkins",
-         "sudo chmod -R 755 /var/lib/jenkins",
-         "sudo -u jenkins cat /var/lib/jenkins/secrets/initialAdminPassword"
-
-    ]
     connection {
       type        = "ssh"
-      user        = "ec2-user" # or the appropriate user for your instance
-      private_key = file("${path.module}/keys/rangam.pem")
-      host        = aws_instance.Jenkins.public_ip
+      user        = "ec2-user"
+      private_key = file("C:/Users/venki/OneDrive/Desktop/keypair/venky.pem")
+      host        = aws_instance.jenkins.public_ip
     }
+    inline = [
+      "sleep 100",
+      "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
+    ]
   }
   }
   output "Jenkins-URL" {
